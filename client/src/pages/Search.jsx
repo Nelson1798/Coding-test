@@ -7,7 +7,7 @@ const Search = () => {
   const [sideBarSearchData, setSideBarSearchData] = useState({
     searchTerm: "",
     offer: false,
-    sort: "created_at",
+    sort: "created_At",
     order: "desc",
   });
   const [loading, setLoading] = useState(false);
@@ -26,7 +26,7 @@ const Search = () => {
       setSideBarSearchData({
         searchTerm: searchTermFromUrl || "",
         offer: offerFromUrl === "true" ? true : false,
-        sort: sortFromUrl || "created_at",
+        sort: sortFromUrl || "created_At",
         order: orderFromUrl || "desc",
       });
     }
@@ -133,7 +133,7 @@ const Search = () => {
             <label className="font-semibold">Sort:</label>
             <select
               onChange={handleChange}
-              defaultValue={"created_at_desc"}
+              value={`${sideBarSearchData.sort}_${sideBarSearchData.order}`}
               id="sort_order"
               className="p-3 border rounded-lg"
             >
